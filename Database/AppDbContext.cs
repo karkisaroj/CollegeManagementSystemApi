@@ -16,8 +16,8 @@ namespace API_Workshop.Database
             modelBuilder.Entity<Enrollment>().HasKey(e => new {e.StudentId, e.CourseId});
             modelBuilder.Entity<ModuleInstructor>().HasKey(e => new { e.ModuleId, e.InstructorId });
             modelBuilder.Entity<Module>().HasOne(m => m.Course)
-                .WithMany();
+                .WithMany(c => c.Modules)
+                .HasForeignKey(m => m.CourseId);
         }
     }
-
 }

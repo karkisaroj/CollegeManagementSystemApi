@@ -58,8 +58,6 @@ namespace API_Workshop.Controllers
         [HttpPost]
         public async Task<ActionResult<Student>> AddNewStudent([FromBody] StudentCreateDto newStudentDto)
         {
-            if (newStudentDto == null) return BadRequest("Student data is required");
-            
             var newStudent = new Student
             {
                 FirstName = newStudentDto.FirstName,
