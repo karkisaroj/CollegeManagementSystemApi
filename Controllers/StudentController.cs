@@ -1,4 +1,5 @@
 ﻿using API_Workshop.Database;
+using API_Workshop.DTO;
 using API_Workshop.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,15 +9,6 @@ using System.Threading.Tasks;
 
 namespace API_Workshop.Controllers
 {
-    public class StudentCreateDto
-    {
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
-        public DateOnly DateOfBirth { get; set; }
-        public string Email { get; set; } = string.Empty;
-        public string Phone { get; set; } = string.Empty;
-    }
-
     [Route("api/students")]
     [ApiController]
     public class StudentsController(AppDbContext context) : ControllerBase
@@ -51,7 +43,7 @@ namespace API_Workshop.Controllers
                 })
                 .ToListAsync();
 
-            if (!courses.Any()) return NotFound("No courses found for this student");
+            if (courses.Count == 0) return NotFound("No courses found for this student");
             return Ok(courses);
         }
 

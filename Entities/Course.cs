@@ -9,6 +9,6 @@ namespace API_Workshop.Entities
         public string Name { get; set; } = string.Empty;
         public int DurationYears { get; set; }
         public List<Enrollment> ? Enrollments { get; set; }
-        public List<Module> Modules { get; set; } = new List<Module>();
+        public ICollection<Module> Modules { get; set; } = [];
     }
 }

@@ -13,6 +13,6 @@ namespace API_Workshop.Entities
         public String Email { get; set; } = String.Empty;
         public String Phone { get; set; } = String.Empty;
 
-        public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
+        public ICollection<Enrollment> Enrollments { get; set; } = [];
     }
 }
