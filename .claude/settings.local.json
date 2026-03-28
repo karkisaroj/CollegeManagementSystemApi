@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/ACER/Downloads/**)",
+      "Read(//d/.Net Project/API Workshop/$HOME/Downloads/**)",
+      "Bash(cd /tmp)",
+      "Bash(rm -rf erd_extract)",
+      "Bash(mkdir erd_extract)",
+      "Bash(unzip -q \"/d/Firefox Downlods/Wokshop ERD.pptx\" -d erd_extract)",
+      "Bash(grep -v '^$')",
+      "Bash(done)",
+      "Bash(dotnet build:*)",
+      "Bash(ls -la \"D:/.Net Project/API Workshop/\"image*.png)"
+    ]
+  }
+}
