@@ -1,4 +1,6 @@
 using API_Workshop.Database;
+using API_Workshop.Services.Implementations;
+using API_Workshop.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 using System.Text.Json.Serialization;
@@ -8,6 +10,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("UserDatabase");
 builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
+
+// Register services with dependency injection
+builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<IModuleService, ModuleService>();
+builder.Services.AddScoped<IInstructorService, InstructorService>();
+builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
+builder.Services.AddScoped<IModuleInstructorService, ModuleInstructorService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
