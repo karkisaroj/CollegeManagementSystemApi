@@ -12,7 +12,6 @@ namespace API_Workshop.Controllers
     {
         private readonly AppDbContext _context = context;
 
-        // GET /api/courses - List all courses with module count
         [HttpGet]
         public async Task<IActionResult> GetAllCourses()
         {
@@ -28,7 +27,6 @@ namespace API_Workshop.Controllers
             return Ok(courses);
         }
 
-        // GET /api/courses/{id} - Get course with its modules
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetCourseById(int id)
         {
@@ -42,7 +40,6 @@ namespace API_Workshop.Controllers
             return Ok(course);
         }
 
-        // GET /api/courses/{id}/modules - Get modules of a course
         [HttpGet("{id:int}/modules")]
         public async Task<IActionResult> GetModulesByCourseId(int id)
         {
@@ -64,7 +61,6 @@ namespace API_Workshop.Controllers
             return Ok(modules);
         }
 
-        // GET /api/courses/{id}/students - Get students enrolled in a course
         [HttpGet("{id:int}/students")]
         public async Task<IActionResult> GetStudentsByCourseId(int id)
         {
@@ -87,7 +83,6 @@ namespace API_Workshop.Controllers
             return Ok(students);
         }
 
-        // POST /api/courses - Create course
         [HttpPost]
         public async Task<ActionResult<Course>> CreateCourse([FromBody] CourseCreateDto courseDto)
         {
@@ -103,7 +98,6 @@ namespace API_Workshop.Controllers
             return CreatedAtAction(nameof(GetCourseById), new { id = course.CourseId }, course);
         }
 
-        // POST /api/courses/{id}/modules - Add module to existing course
         [HttpPost("{id:int}/modules")]
         public async Task<ActionResult<Module>> AddModuleToCourse(int id, [FromBody] ModuleCreateDto moduleDto)
         {
